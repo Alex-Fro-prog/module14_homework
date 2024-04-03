@@ -1,0 +1,31 @@
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.page, .limit {
+    width: 100px;
+}
+
+button {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 200px;
+    margin: 20px;
+  }
+  
+  .card-image {
+    display: block;
+    width: 200px;
+    height: 150px;
+  }
