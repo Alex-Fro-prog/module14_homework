@@ -21,28 +21,25 @@ const xmlString = `
 </list>
 `;
 
-result = {
-    list: []
-}
-
 const xmlDOM = parser.parseFromString(xmlString, "text/xml");
 let listNode = xmlDOM.querySelectorAll("student");
 
-let list = [];
-listNode.forEach(student => {
-    const nameNode = student.querySelector('name');
-    const firstNode = nameNode.querySelector('first');
-    const secondNode = nameNode.querySelector('second');
-    const langAttr = nameNode.getAttribute('lang');
-    const ageNode = student.querySelector('age');
-    const profNode = student.querySelector('prof')
-    
-    result.list.push({
-        name: `${firstNode.textContent} ${secondNode.textContent}`,
-        age: Number(ageNode.textContent),
-        prof: profNode.textContent,
-        lang: langAttr
+const result = {
+    list: [...listNode].map(student => {
+        const nameNode = student.querySelector('name');
+        const firstNode = nameNode.querySelector('first').textContent;
+        const secondNode = nameNode.querySelector('second').textContent;
+        const langAttr = nameNode.getAttribute('lang');
+        const age = Number(student.querySelector('age').textContent);
+        const prof = student.querySelector('prof').textContent;
+        
+        return {
+            name: `${firstNode} ${secondNode}`,
+            age,
+            prof,
+            lang: langAttr
+        };
     })
-})
+};
 
 console.log(result);
