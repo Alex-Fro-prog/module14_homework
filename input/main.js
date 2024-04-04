@@ -28,8 +28,8 @@ function displayResult(apiData) {
     apiData.forEach(item => {
         const cardBlock = `
             <div class="card">
-                <img class="card-image" src="${item.download_url}">
-                <p>${item.author}</p>
+                <img class="card-image" src="${item.thumbnailUrl}"/>
+                <p>${item.title}</p>
             </div>
         `;
         cards += cardBlock;
